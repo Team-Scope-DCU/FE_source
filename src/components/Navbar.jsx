@@ -6,17 +6,17 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="container">
-        <Link to="/" className="brand">숨고</Link>
+        <Link to="/" className="brand">PET SCOPE</Link>
 
         <nav className="nav-links">
-          <NavLink to="/estimate" className={active}>견적요청</NavLink>
-          <NavLink to="/find-pro" className={active}>고수찾기</NavLink>
-          <NavLink to="/market" className={active}>마켓</NavLink>
+            <NavLink to="/community" className={active}>커뮤니티</NavLink>
+            <NavLink to="/freeboard" className={active}>자유게시판</NavLink>
+            <NavLink to="/adopt" className={active}>분양/입양</NavLink>
         </nav>
 
         <div className="nav-right">
           <button className="link">로그인 / 회원가입</button>
-          <button className="cta">고수가입</button>
+          <button className="cta">기업가입</button>
         </div>
       </div>
     </header>

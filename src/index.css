@@ -1,7 +1,7 @@
 :root {
   --text: #111;
   --muted: #6b7280;
-  --brand: #6d28d9;
+  --brand: #1E90FF;
   --bg: #ffffff;
   --surface: #f3f4f6;
   --radius: 14px;
@@ -35,9 +35,35 @@ a { text-decoration: none; color: inherit; }
 .search:focus { border-color: var(--brand); background: white; }
 
 /* CATEGORIES */
-.cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; padding: 24px 0 40px; }
-@media (max-width: 800px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
-.cat { display: grid; place-items: center; gap: 8px; padding: 14px 8px; border-radius: 12px; border: 1px solid #eee; background: var(--surface); cursor: pointer; }
+/* 카테고리 그리드: 데스크탑 5열 고정 */
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 6 → 5 */
+  gap: 16px;
+  padding: 24px 0 40px;
+}
+
+/* 태블릿 이하에서는 3열 */
+@media (max-width: 900px) {
+  .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* 모바일에서는 2열 */
+@media (max-width: 520px) {
+  .cat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 카드 스타일(그대로 사용해도 OK) */
+.cat { 
+  display: grid; 
+  place-items: center; 
+  gap: 8px; 
+  padding: 14px 8px; 
+  border-radius: 12px; 
+  border: 1px solid #eee; 
+  background: var(--surface); 
+  cursor: pointer; 
+}
 .cat:hover { background: #eef2ff; }
 .cat-icon { font-size: 22px; }
 .cat-label { font-size: 14px; color: #111; }
