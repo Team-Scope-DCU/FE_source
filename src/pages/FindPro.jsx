@@ -1,1 +1,0 @@
-export default function FindPro(){ return <div className='container page'>고수찾기 페이지</div> }

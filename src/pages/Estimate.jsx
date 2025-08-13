@@ -1,1 +1,0 @@
-export default function Estimate(){ return <div className='container page'>견적요청 페이지</div> }

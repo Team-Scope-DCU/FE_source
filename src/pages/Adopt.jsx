@@ -1,0 +1,1 @@
+export default function Adopt(){ return <div className='container page'>분양, 입양 페이지</div> }

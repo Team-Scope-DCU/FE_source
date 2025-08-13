@@ -1,0 +1,1 @@
+export default function FreeBoard(){ return <div className='container page'>자유게시판 페이지</div> }

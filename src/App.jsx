@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Estimate from "./pages/Estimate";
-import FindPro from "./pages/FindPro";
-import Market from "./pages/Market";
+import Community from "./pages/Community";
+import FreeBoard from "./pages/FreeBoard";
+import Adopt from "./pages/Adopt";
 
 export default function App() {
   return (
@@ -11,9 +11,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/estimate" element={<Estimate />} />
-        <Route path="/find-pro" element={<FindPro />} />
-        <Route path="/market" element={<Market />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/freeboard" element={<FreeBoard />} />
+        <Route path="/adopt" element={<Adopt />} />
       </Routes>
     </div>
   );
