@@ -1,0 +1,1 @@
+export default function Market(){ return <div className='container page'>마켓 페이지</div> }

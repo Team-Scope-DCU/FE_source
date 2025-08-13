@@ -1,0 +1,44 @@
+:root {
+  --text: #111;
+  --muted: #6b7280;
+  --brand: #6d28d9;
+  --bg: #ffffff;
+  --surface: #f3f4f6;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; color: var(--text); background: var(--bg); font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* NAV */
+.nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid #eee; }
+.nav .container { display: flex; align-items: center; height: 64px; gap: 24px; }
+.brand { font-weight: 800; color: var(--brand); font-size: 20px; }
+.nav-links { display: flex; gap: 20px; flex: 1; }
+.nav-link { padding: 8px 6px; color: #374151; }
+.nav-link.active { color: var(--brand); font-weight: 600; }
+.nav-right { display: flex; gap: 12px; }
+.link { background: transparent; border: 0; color: #374151; cursor: pointer; }
+.cta { background: var(--brand); color: white; border: 0; padding: 10px 14px; border-radius: 10px; cursor: pointer; }
+
+/* HERO */
+.hero { display: grid; place-items: center; padding: 64px 0 24px; text-align: center; }
+.title { font-size: 32px; font-weight: 700; margin: 0 0 24px; }
+
+/* SEARCH */
+.search-wrap { width: 100%; max-width: 720px; }
+.search { width: 100%; padding: 16px 18px; border: 1px solid #e5e7eb; border-radius: var(--radius); background: #f9fafb; outline: none; }
+.search:focus { border-color: var(--brand); background: white; }
+
+/* CATEGORIES */
+.cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; padding: 24px 0 40px; }
+@media (max-width: 800px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+.cat { display: grid; place-items: center; gap: 8px; padding: 14px 8px; border-radius: 12px; border: 1px solid #eee; background: var(--surface); cursor: pointer; }
+.cat:hover { background: #eef2ff; }
+.cat-icon { font-size: 22px; }
+.cat-label { font-size: 14px; color: #111; }
+.page { padding: 24px 0; }
