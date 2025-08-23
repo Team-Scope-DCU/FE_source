@@ -1,21 +1,27 @@
+// src/pages/auth/Login.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { API } from "@/lib/api";
 
-export default function Login(){
-  const [f, setF] = useState({ email:"", password:"" });
-  const [show, setShow] = useState(false);
+export default function Login() {
+  const nav = useNavigate();
+  const [f, setF] = useState({ username: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const onChange = e => setF({ ...f, [e.target.name]: e.target.value });
+
+  const onChange = (e) => setF({ ...f, [e.target.name]: e.target.value });
 
   const submit = async (e) => {
     e.preventDefault();
+    if (!f.username || !f.password) return alert("아이디와 비밀번호를 입력하세요.");
+
     setLoading(true);
     try {
-      await API.login(f);
-      // TODO: redirect
+      // 서버가 username 기반 로그인을 받도록 백엔드에서 처리해 주세요.
+      await API.login({ username: f.username, password: f.password });
       alert("로그인 성공");
-    } catch (e) {
-      alert("로그인 실패: " + (e?.message || ""));
+      nav("/");
+    } catch (err) {
+      alert("로그인 실패: " + (err?.message || ""));
     } finally {
       setLoading(false);
     }
@@ -25,22 +31,38 @@ export default function Login(){
     <main className="auth">
       <div className="card auth-card">
         <h1 className="auth-title">로그인</h1>
-        <form onSubmit={submit} className="form">
+        <form onSubmit={submit} className="form" noValidate>
+          {/* 아이디 */}
           <label className="field">
-            <div className="field-label">이메일</div>
-            <input className="input" name="email" type="email" placeholder="you@example.com" value={f.email} onChange={onChange}/>
+            <div className="field-label">아이디</div>
+            <input
+              className="input"
+              name="username"
+              placeholder="아이디를 입력하세요"
+              value={f.username}
+              onChange={onChange}
+              autoComplete="username"
+            />
           </label>
 
+          {/* 비밀번호 */}
           <label className="field">
             <div className="field-label">비밀번호</div>
-            <div className="input-with-btn">
-              <input className="input" name="password" type={show ? "text" : "password"} placeholder="비밀번호" value={f.password} onChange={onChange}/>
-              <button type="button" className="btn ghost small" onClick={() => setShow(s=>!s)}>{show ? "숨기기" : "보기"}</button>
-            </div>
+            <input
+              className="input"
+              type="password"
+              name="password"
+              placeholder="비밀번호"
+              value={f.password}
+              onChange={onChange}
+              autoComplete="current-password"
+            />
           </label>
 
           <div className="actions">
-            <button className="btn primary" disabled={loading}>{loading ? "로그인 중..." : "로그인"}</button>
+            <button className="btn primary" disabled={loading}>
+              {loading ? "처리 중..." : "로그인"}
+            </button>
           </div>
         </form>
       </div>

@@ -25,7 +25,7 @@ export default function Navbar() {
 
           {/* ➡️ 우측 액션(중복 없음, 버튼 스타일) */}
           <div className="nav-actions">
-            <NavLink to="/signup" className="btn outline">회원가입</NavLink>
+            <NavLink to="/terms" className="btn outline">회원가입</NavLink>
             <NavLink to="/login" className="btn ghost">로그인</NavLink>
             <NavLink to="/business-signup" className="btn primary">기업가입</NavLink>
           </div>

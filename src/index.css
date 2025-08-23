@@ -177,3 +177,86 @@ a { text-decoration: none; color: inherit; }
 .auth-card { width: 100%; max-width: 440px; padding: 24px; border-radius: 14px; border: 1px solid #eef2f7; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
 .auth-title { margin: 0 0 14px; font-size: 22px; font-weight: 800; }
 .card { background: #fff; border: 1px solid #eef2f7; border-radius: 14px; padding: 16px; }
+
+.auth { 
+  min-height: 100vh; 
+  background-color: #e5e7eb; /* 살짝 어둡게(회색 톤) */
+}
+
+@media (prefers-color-scheme: dark) {
+  .auth { background-color: #0b1220; } /* OS 자체 다크 모드 대비 */
+}
+
+/* 회원가입 보조 스타일 */
+.input-hint {
+  font-size: 12px;
+  margin-top: 4px;
+  color: var(--muted);
+}
+.input-hint.valid { color: #059669; }   /* 초록: 맞다/같다/사용 가능 */
+.input-hint.invalid { color: #dc2626; } /* 빨강: 아니다/불일치/이미 사용 중 */
+
+.field-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.field-row .input { flex: 1; }
+
+
+/* --- Terms page 전용 레이아웃 --- */
+
+/* 상·하단 1cm 정도 여백 확보 (뷰포트 기준) */
+.auth--terms { padding-block: 1cm; }
+
+.auth--terms .terms-box {
+  height: 66.666vw;    /* 뷰포트 높이의 75% */
+  max-height: none; /* 이전 max-height 무력화 */
+  overflow: auto;   /* 내용 스크롤 유지 */
+}
+
+/* 카드 자체를 페이지의 2/3 폭으로, 중앙 정렬 */
+.auth-card--wide {
+  width: 66.666vw;
+  max-width: 1200px;       /* 너무 넓어지지 않게 상한 */
+  margin: 0 auto;
+}
+
+/* --- Terms 페이지 전용: terms-box 단일 정의 --- */
+.auth--terms .terms-box {
+  /* 모양 */
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  /* 배치 */
+  width: 100%;
+  margin: 12px auto 0;
+
+  /* 스크롤/크기 (페이지 높이의 2/3) */
+  height: 66.666vh;   /* = 2/3 */
+  max-height: none;
+  overflow: auto;
+}
+
+.terms-text {
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-size: 14px;
+  color: #111;
+}
+
+/* 체크박스와 버튼 사이 간격 확보 */
+.terms-check { display: flex; gap: 8px; align-items: center; margin-top: 12px; }
+.actions--spaced { margin-top: 18px; }
+
+/* 반응형 보정 */
+@media (max-width: 900px) {
+  .auth-card--wide { width: 92vw; }
+  .terms-text { font-size: 13.5px; }
+}
+
+@media (max-height: 700px) {
+  .auth--terms .terms-box { height: 65vh; }
+}

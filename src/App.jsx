@@ -11,6 +11,7 @@ import WritePost from "@/pages/board/WritePost";
 import Login from "@/pages/auth/Login";
 import Signup from "@/pages/auth/Signup";
 import BusinessSignup from "@/pages/auth/BusinessSignup";
+import Terms from "@/pages/auth/Terms";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/business-signup" element={<BusinessSignup />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
     </div>
